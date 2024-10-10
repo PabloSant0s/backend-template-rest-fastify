@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch --env-file .env src/server.ts",
+    "dev": "tsx watch --env-file .env src/infra/server.ts",
     "build": "tsup src --format esm",
     "start": "node dist/infra/server.mjs",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
