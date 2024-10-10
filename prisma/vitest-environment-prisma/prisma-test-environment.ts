@@ -1,8 +1,10 @@
-import { PrismaClient } from '@prisma/client'
-import { randomUUID } from 'node:crypto'
 import 'dotenv/config'
-import { Environment } from 'vitest'
+
 import { execSync } from 'node:child_process'
+import { randomUUID } from 'node:crypto'
+
+import { PrismaClient } from '@prisma/client'
+import { Environment } from 'vitest'
 const prisma = new PrismaClient()
 
 function generateDatabaseUrl(schema: string) {
@@ -25,7 +27,7 @@ export default <Environment>{
 
     execSync('npx prisma migrate deploy')
 
-    return{
+    return {
       async teardown() {
         await prisma.$executeRawUnsafe(
           `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
@@ -35,5 +37,5 @@ export default <Environment>{
       },
     }
   },
-  transformMode: 'ssr'
+  transformMode: 'ssr',
 }

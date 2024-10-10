@@ -1,4 +1,3 @@
-
 import { AggregateRoot } from '../aggregate-root'
 import { UniqueEntityID } from '../unique-entity-id'
 import { DomainEvent } from './domain-event'

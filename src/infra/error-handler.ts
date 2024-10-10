@@ -1,7 +1,8 @@
 import { FastifyInstance } from 'fastify'
 import { ZodError } from 'zod'
-import { BadRequestError } from './http/errors/bad-request'
+
 import { env } from './env'
+import { BadRequestError } from './http/errors/bad-request'
 
 type FastifyErrorHandler = FastifyInstance['errorHandler']
 

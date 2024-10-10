@@ -1,18 +1,18 @@
-import fastify from "fastify";
 import cors from '@fastify/cors'
+import fastifyJwt from '@fastify/jwt'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from '@fastify/swagger-ui'
+import fastify from 'fastify'
 import {
   jsonSchemaTransform,
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 
-import { routes } from "./http/routes";
-import { errorHandler } from "./error-handler";
-import packageJson from "../../package.json";
-import fastifyJwt from "@fastify/jwt";
-import { env } from "./env";
+import packageJson from '../../package.json'
+import { env } from './env'
+import { errorHandler } from './error-handler'
+import { routes } from './http/routes'
 
 const app = fastify()
 
@@ -26,8 +26,7 @@ app.register(fastifySwagger, {
     produces: ['application/json'],
     info: {
       title: 'Template Backend Fastify',
-      description:
-        'Especificações da API Fastify',
+      description: 'Especificações da API Fastify',
       version: packageJson.version,
     },
   },
@@ -57,4 +56,3 @@ app.register(routes)
 app.setErrorHandler(errorHandler)
 
 export { app }
-
